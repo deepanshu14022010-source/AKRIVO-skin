@@ -1,0 +1,56 @@
+{
+  "name": "AKRIVO Skin",
+  "short_name": "AKRIVO",
+  "description": "Photo-supported skincare wellness guidance, routines, reminders, progress notes, Skin Bot, and Duo support.",
+  "id": "/?source=pwa",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "browser"],
+  "background_color": "#050811",
+  "theme_color": "#050811",
+  "orientation": "portrait-primary",
+  "categories": ["health", "lifestyle", "productivity"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Install AKRIVO",
+      "short_name": "Install",
+      "description": "Open the AKRIVO Skin install page.",
+      "url": "/download",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Skin Bot",
+      "short_name": "Bot",
+      "description": "Open AKRIVO Skin and ask the skincare wellness bot.",
+      "url": "/",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

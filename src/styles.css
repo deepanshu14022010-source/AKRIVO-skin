@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply min-h-screen bg-black text-[#f7f8ff] antialiased;
+    background:
+      radial-gradient(circle at 18% 12%, rgba(255, 105, 180, 0.16), transparent 22rem),
+      radial-gradient(circle at 82% 28%, rgba(115, 203, 255, 0.12), transparent 24rem),
+      linear-gradient(140deg, #020307 0%, #090b12 48%, #030409 100%);
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: auto -12vw 7vh -12vw;
+    height: 20vh;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse at 35% 60%, rgba(255, 130, 190, 0.36), transparent 36%),
+      radial-gradient(ellipse at 72% 52%, rgba(150, 210, 255, 0.28), transparent 42%);
+    filter: blur(18px);
+    opacity: 0.78;
+    z-index: -1;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  ::selection {
+    background: rgba(255, 133, 190, 0.35);
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-lg border border-white/10 bg-[#090d16]/80 p-5 shadow-soft backdrop-blur-xl;
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.055);
+  }
+
+  .btn-primary {
+    @apply min-h-12 rounded-lg bg-gradient-to-r from-[#ff6eb7] via-[#9a7cff] to-[#7be7ff] px-5 font-black text-[#05070c] shadow-lg transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0;
+    box-shadow: 0 0 22px rgba(255, 110, 183, 0.22), 0 14px 35px rgba(0, 0, 0, 0.36);
+  }
+
+  .btn-secondary {
+    @apply min-h-12 rounded-lg border border-white/10 bg-white/5 px-5 font-black text-[#dce9ff] transition hover:-translate-y-0.5 hover:border-[#ff8fbd]/40 hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0;
+  }
+
+  .input {
+    @apply min-h-12 w-full rounded-lg border border-white/10 bg-[#04070d]/80 px-4 py-3 text-[#f7f8ff] outline-none transition placeholder:text-[#6f7890] focus:border-[#ff8fbd] focus:ring-4 focus:ring-[#ff8fbd]/15;
+  }
+
+  .eyebrow {
+    @apply mb-1 text-xs font-black uppercase tracking-normal text-[#ff8fbd];
+  }
+
+  .muted {
+    @apply text-sm leading-6 text-[#a8b1c8];
+  }
+
+  .badge {
+    @apply rounded-full border border-[#7be7ff]/20 bg-[#7be7ff]/10 px-3 py-1 text-xs font-black text-[#bdefff];
+  }
+
+  .bottom-nav {
+    @apply sticky bottom-3 z-20 mx-auto mt-5 grid max-w-3xl grid-cols-6 gap-1 rounded-lg border border-white/10 bg-[#050811]/90 p-1 shadow-soft backdrop-blur-xl;
+    box-shadow: 0 0 26px rgba(123, 231, 255, 0.09), 0 18px 45px rgba(0, 0, 0, 0.48);
+  }
+
+  .bottom-nav button {
+    @apply min-h-11 rounded-md text-xs font-black text-[#8f98ad] transition;
+  }
+
+  .bottom-nav button.active {
+    @apply bg-white/10 text-[#f8fbff];
+    box-shadow: inset 0 0 0 1px rgba(255, 143, 189, 0.18), 0 0 18px rgba(255, 143, 189, 0.16);
+  }
+
+  .skeleton {
+    @apply animate-pulse rounded-lg bg-gradient-to-r from-[#111827] via-[#253044] to-[#111827];
+  }
+
+  .skin-orbit {
+    position: relative;
+    min-height: 360px;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background:
+      radial-gradient(circle at 50% 26%, rgba(255, 143, 189, 0.18), transparent 28%),
+      radial-gradient(circle at 68% 40%, rgba(123, 231, 255, 0.12), transparent 35%),
+      linear-gradient(180deg, rgba(13, 18, 31, 0.92), rgba(4, 6, 11, 0.96));
+    box-shadow: inset 0 0 38px rgba(123, 231, 255, 0.05);
+  }
+
+  .skin-drop {
+    position: absolute;
+    left: 50%;
+    top: 72px;
+    width: 128px;
+    height: 128px;
+    transform: translateX(-50%) rotate(45deg);
+    border-radius: 72% 42% 72% 46%;
+    background:
+      radial-gradient(circle at 38% 35%, #ffffff 0 2px, transparent 3px),
+      radial-gradient(circle at 56% 48%, rgba(123, 231, 255, 0.95) 0 2px, transparent 3px),
+      radial-gradient(circle at 45% 62%, rgba(255, 143, 189, 0.95) 0 2px, transparent 3px),
+      radial-gradient(circle, rgba(255, 143, 189, 0.22), rgba(123, 231, 255, 0.12) 54%, transparent 64%);
+    box-shadow: 0 0 34px rgba(255, 143, 189, 0.22), 0 0 54px rgba(123, 231, 255, 0.14);
+  }
+
+  .skin-drop::before {
+    content: "";
+    position: absolute;
+    inset: -34px;
+    border: 1px dashed rgba(255, 180, 216, 0.45);
+    border-radius: 50%;
+  }
+
+  .signal-card {
+    @apply rounded-lg border border-white/10 bg-black/30 p-3;
+  }
+
+  .signal-bar {
+    @apply h-2 rounded-full bg-white/10;
+  }
+
+  .signal-bar span {
+    @apply block h-full rounded-full bg-gradient-to-r from-[#ff8fbd] to-[#7be7ff];
+    box-shadow: 0 0 12px rgba(255, 143, 189, 0.3);
+  }
+
+  .chat-window {
+    @apply grid max-h-[62vh] min-h-[390px] content-start gap-2 overflow-y-auto rounded-lg border border-white/10 bg-black/30 p-3;
+  }
+
+  .chat-bubble {
+    @apply rounded-lg border p-3 text-sm font-semibold leading-6;
+  }
+
+  .chat-bubble.user {
+    @apply ml-8 border-[#7be7ff]/20 bg-[#7be7ff]/10 text-[#e8fbff];
+  }
+
+  .chat-bubble.assistant {
+    @apply mr-8 border-[#ff8fbd]/20 bg-[#ff8fbd]/10 text-[#fff2f8];
+  }
+
+  main [class~="bg-white"],
+  main [class*="bg-[#fff"],
+  main [class*="bg-[#f6"],
+  main [class*="bg-[#edf5"],
+  main [class*="bg-[#e7f1"],
+  main [class*="bg-[#eef5"] {
+    background-color: rgba(11, 15, 26, 0.78) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  main [class*="border-[#eee"],
+  main [class*="border-[#e3"],
+  main [class*="border-[#d9"] {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  main [class*="text-[#2e"],
+  main [class*="text-[#554"],
+  main [class*="text-[#245"],
+  main [class*="text-[#315"],
+  main [class*="text-[#737"],
+  main [class*="text-[#9b"] {
+    color: #dce6fb !important;
+  }
+
+  main table {
+    color: #eaf0ff;
+  }
+
+  main a {
+    color: #9deeff;
+  }
+}
